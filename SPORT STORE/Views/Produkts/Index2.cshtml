@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SPORT_STORE.Models.Produkt>
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <input id="Search" type="text" />
+    <br />
+    <br />
+    <table id="tblCustomers" cellpadding="0" cellspacing="0" border="1">
+        <tr>
+            <th style="width: 90px">ProduktID</th>
+            <th style="width: 90px">Emri</th>
+            <th style="width: 120px">Cmimi</th>
+            <th style="width: 90px">Pershkrimi</th>
+        </tr>
+        @foreach(var item in Model)
+        {
+        <tr class="Search">
+            <td>@item.ID</td>
+            <td>@item.Emri</td>
+            <td>@item.Cmimi</td>
+            <td>@item.Pershkrimi</td>
+        </tr>
+        }
+    </table>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function Contains(text_one, text_two) {
+                if (text_one.indexOf(text_two) != -1)
+                    return true;
+            }
+            $("#Search").keyup(function () {
+                var searchText = $("#Search").val().toLowerCase();
+                $(".Search").each(function () {
+                    if (!Contains($(this).text().toLowerCase(), searchText)) {
+                        $(this).hide();
+                    }
+                    else {
+                        $(this).show();
+                    }
+                });
+
+            });
+        });
+    </script>
+</body>
+</html>

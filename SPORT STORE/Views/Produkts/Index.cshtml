@@ -1,0 +1,106 @@
+﻿@model IEnumerable<SPORT_STORE.Models.Produkt>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Produkte</h2>
+
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+
+    @Html.ActionLink("Create New", "Create")
+}
+
+@if (!User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Shporta Juaj", "ShtoShport", null, new { @class = "btn btn-info" })
+}
+@using (Html.BeginForm("Index", "Produkts", FormMethod.Get))
+{
+    <label>Filtro sipas kategorise:</label> @Html.DropDownList("Category", "All")
+    <input type="submit" value="Filter" />
+
+    <label>Kerko</label><input type="text" id="Search" />
+  
+
+}
+
+<table class="table-striped" width="100%" id="tblCustomers">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Inventar.Sasia)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Emri)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Cmimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imazh)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="Search">
+            <td>
+                @Html.DisplayFor(modelItem => item.Inventar.Sasia)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Emri)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Cmimi)
+            </td>
+            <td>
+
+                <img width="250" height="250" src="~/Content/images/@Html.DisplayFor(modelItem => item.imazh)" />
+            </td>
+            <td>
+                @if (!User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Shto ne karte", "ShtoShport", new { id = item.ID }, new { @class = "btn btn-info" })
+                    @Html.Raw("|")
+                }
+                @Html.ActionLink("Details", "Details", new { id = item.ID })
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    @Html.Raw(" | ")
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                    @Html.Raw(" | ")
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+
+        });
+    });
+</script>

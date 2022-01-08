@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SPORT_STORE.Models.Shporta>
+
+@{
+    ViewBag.Title = "ShtoShport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Your cart</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Produkti</th>
+            <th>Sasia</th>
+            <th class="text-right">Cmimi</th>
+            <th class="text-right">Subtotal</th>
+            <th class="text-right">Hiq produkte</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model)
+        {
+            <tr>
+                <td><img src="~/Content/images/@line.Produkt.imazh" width="250" height="250" /></td>
+                <td class="text-left">@line.Sasia</td>
+                <td class="text-center">@line.Produkt.Cmimi.ToString("c")</td>
+                <td class="text-right">
+                    @((line.Sasia * line.Produkt.Cmimi).ToString("c"))
+                </td>
+                <td>
+                <td>
+                    @Html.ActionLink("Ul sasine", "ZbritSasi", new { @id = line.Produkt.ID }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("X", "FshiProdukt", new { @id = line.Produkt.ID }, new { @class = "btn btn-warning" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @ViewBag.Totali.ToString("c")
+            </td>
+        </tr>
+    </tfoot>
+
+</table>
+<div class="text-center">
+    @Html.ActionLink("Continue shopping", "Index", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Porosit", "CheckOut","Produkts",null, new { @class = "btn btn-primary" })
+</div>

@@ -1,0 +1,40 @@
+﻿@model SPORT_STORE.Models.Porosi
+
+@{
+    ViewBag.Title = "ShtoShport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<label>Vendosni te dhenat per porosine.</label>
+<br />
+<br />
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@using (Html.BeginForm("ProcesoPorosin", "Produkts", FormMethod.Post, new { id = "customer-form" }))
+{
+<table>
+    <tr>
+        <td>Sasia</td>
+        <td><input type="text" name="sasia" id="sasia" required /></td>
+
+    </tr>
+    <tr>
+        <td>Adresa</td>
+        <td><input type="text" name="adresa" id="adresa" required /></td>
+    </tr>
+    <tr>
+        <td>Telefon</td>
+        <td><input type="text" name="telefon" id="telefon" required /></td>
+    </tr>
+    <tr>
+        <td>userid</td>
+        <td><input type="text" name="userid" id="userid" /></td>
+
+    </tr>
+    <tr>
+        <td colspan="3"><input type="submit" id="submit" value="Perfundo" /></td>
+
+    </tr>
+</table>
+}
+
+
+

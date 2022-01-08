@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <title>Sport Store</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/Content/css/style.css">
+
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+
+    @*<link rel="icon" href="~/Content/images/fevicon.png" type="image/gif" />*@
+
+    <link rel="stylesheet" href="~/Content/css/jquery.mCustomScrollbar.min.css">
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css">
+
+    @*<link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">*@
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body class="main-layout">
+    <!-- header section start -->
+    <div class="header_section">
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo"><a href="~/Content/#"><img src="~/Content/images/logo.png"></a></div>
+                </div>
+                <div class="col-sm-9">
+                    <nav class="navbar navbar-inverse navbar-fixed-top">
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collaps">
+                        <span class="icon-bar"></span>
+                      </button>
+                      <div class="navbar-collapse collapse">
+                          <ul class="nav navbar-nav">
+                              <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                              <li>@Html.ActionLink("About", "About", "Home")</li>
+                              <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                              <li>@Html.ActionLink("Shop", "Index", "Produkts")</li>
+
+                          </ul>
+                          @using (Html.BeginForm("Index", "ProduKts", FormMethod.Get, new
+                          {
+                              @class = "navbar-nav"
+                          }))
+                          {
+                              <div class="form-group">
+                                  @Html.TextBox("kerko", null, new { @class = "nav-item nav-link", @placeholder
+                                  = "Kerko Produktin" })
+                              </div>
+                              <button type="submit" class="nav-item nav-link">Submit</button>
+                          }
+                         
+
+                          @Html.Partial("_LoginPartial")
+                      </div>
+                  </nav>
+
+                </div>
+        </div>
+    </div>
+                    <div class="banner_section">
+                        <div class="container-fluid">
+                            <section class="slide-wrapper">
+                                <div class="container-fluid">
+                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                                        </ol>
+
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="row">
+                                                    <div class="col-sm-2 padding_0">
+                                                        <p class="mens_taital">Meshkuj</p>
+                                                        <div class="page_no">0/2</div>
+                                                        <p class="mens_taital_2">Femra</p>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <div class="banner_taital">
+                                                            <h1 class="banner_text"> <strong>Atlete të reja për vrapim </strong> </h1>
+                                                            <h5 class="mens_text">Tendencat me te fundit te sezonit</h5>
+                                                            <p class="lorem_text">Stil urban dhe terheqes, Nike/Adidas/Reebook </p>
+                                                            <button class="buy_bt">Bli Tani</button>
+                                                            <button class="more_bt">Shikoni ofertën</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <div class="shoes_img"><img src="~/Content/images/running-shoes.png"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="row">
+                                                    <div class="col-sm-2 padding_0">
+                                                        <p class="mens_taital">Men Shoes</p>
+                                                        <div class="page_no">0/2</div>
+                                                        <p class="mens_taital_2">Women Shoes</p>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <div class="banner_taital">
+                                                            <h1 class="banner_text"><strong>New Running Shoes</strong> </h1>
+                                                            <h5 class="mens_text">The latest trends of the season </h5>
+                                                            <p class="lorem_text"> Urban and attractive style, Nike / Adidas / Reebook.</p>
+                                                            <button class="buy_bt">Buy Now</button>
+                                                            <button class="more_bt">See More</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <div class="shoes_img"><img src="~/Content/images/running-shoes.png"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="row">
+                                                    <div class="col-sm-2 padding_0">
+                                                        <p class="mens_taital">Meshkuj</p>
+                                                        <div class="page_no">0/2</div>
+                                                        <p class="mens_taital_2">Femra</p>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <div class="banner_taital">
+                                                            <h1 class="banner_text"> <strong>Atlete të reja për vrapim </strong></h1>
+                                                            <h5 class="mens_text">Tendencat me te fundit te sezonit</h5>
+                                                            <p class="lorem_text">Stil urban dhe terheqes, Nike/Adidas/Reebook.</p>
+                                                            <button class="buy_bt">Bli Tani</button>
+                                                            <button class="more_bt">Shikoni ofertën</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <div class="shoes_img"><img src="~/Content/images/running-shoes.png"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="row">
+                                                    <div class="col-sm-2 padding_0">
+                                                        <p class="mens_taital">Men Shoes</p>
+                                                        <div class="page_no">0/2</div>
+                                                        <p class="mens_taital_2">Women Shoes</p>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <div class="banner_taital">
+                                                            <h1 class="banner_text"> <strong>New Running Shoes</strong> </h1>
+                                                            <h5 class="mens_text">The latest trends of the season </h5>
+                                                            <p class="lorem_text">Urban and attractive style, Nike / Adidas / Reebook.</p>
+                                                            <button class="buy_bt">Buy Now</button>
+                                                            <button class="more_bt">See More</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <div class="shoes_img"><img src="~/Content/images/running-shoes.png"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+    <!-- header section end -->
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <!-- section footer start -->
+    <div class="section_footer">
+        <div class="container">
+            <div class="mail_section">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-2">
+                        <div><a href="~/Content/#"><img src="~/Content/images/footer-logo.png"></a></div>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <div class="footer-logo"><img src="~/Content/images/phone-icon.png"><span class="map_text">(71) 1234567890</span></div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="footer-logo"><img src="~/Content/images/email-icon.png"><span class="map_text">SportStore@gmail.com</span></div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="social_icon">
+                            <ul>
+                                <li><a href="~/Content/#"><img src="~/Content/images/fb-icon.png"></a></li>
+                                <li><a href="~/Content/#"><img src="~/Content/images/twitter-icon.png"></a></li>
+                                <li><a href="~/Content/#"><img src="~/Content/images/in-icon.png"></a></li>
+                                <li><a href="~/Content/#"><img src="~/Content/images/google-icon.png"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </div>
+            <div class="footer_section_2">
+                <div class="row">
+                    <div class="col-sm-4 col-lg-2">
+                        <p class="dummy_text">Beni zgjedhjen e duhur! Vetem tek Sport Store</p>
+                    </div>
+                    <div class="col-sm-4 col-lg-2">
+                        <h2 class="shop_text">Address </h2>
+                        <div class="image-icon"><img src="~/Content/images/map-icon.png"><span class="pet_text">Ruga e Kavajes perball Arkitektura UFO, Tirane, Shqiperi.</span></div>
+                    </div>
+                    <div class="col-sm-4 col-md-6 col-lg-3">
+                        <h2 class="shop_text">Rreth Kompanise </h2>
+                        <div class="delivery_text">
+                            <ul>
+                                <li>Kush jemi</li>
+                                <li>Dyqanet fizike</li>
+                                <li>Termat & kushtet</li>
+                                <li>Pagesa</li>
+                                <li>Harta e faqes</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <h2 class="adderess_text">Sherbim Klienti</h2>
+                        <div class="delivery_text">
+                            <ul>
+                                <li>Transport</li>
+                                <li>Pagesa</li>
+                                <li>Mundesi Kthimi</li>
+                                <li>Si te blej</li>
+                                <li>FAQ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <h2 class="adderess_text">Newsletter</h2>
+                        <div class="form-group">
+                            <input type="text" class="enter_email" placeholder="Vendosni e-mail-in tuaj" name="Name">
+                        </div>
+                        <button class="subscribr_bt">Rregjistrohuni</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- section footer end -->
+    <!-- Javascript files-->
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/popper.min.js"></script>
+    <script src="~/Content/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/js/jquery-3.0.0.min.js"></script>
+    <script src="~/Content/js/plugin.js"></script>
+    
+    <!-- sidebar -->
+    <script src="~/Content/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <!-- javascript -->
+    @*<script src="~/Content/js/owl.carousel.js"></script>*@
+    @*<script src="~/Content/https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>*@
+    <script>
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+
+            $('#myCarousel').carousel({
+                interval: false
+            });
+
+            //scroll slides on swipe for touch enabled devices
+
+            $("#myCarousel").on("touchstart", function (event) {
+
+                var yClick = event.originalEvent.touches[0].pageY;
+                $(this).one("touchmove", function (event) {
+
+                    var yMove = event.originalEvent.touches[0].pageY;
+                    if (Math.floor(yClick - yMove) > 1) {
+                        $(".carousel").carousel('next');
+                    }
+                    else if (Math.floor(yClick - yMove) < -1) {
+                        $(".carousel").carousel('prev');
+                    }
+                });
+                $(".carousel").on("touchend", function () {
+                    $(this).off("touchmove");
+                });
+            });
+
+        });
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
