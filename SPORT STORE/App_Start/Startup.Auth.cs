@@ -55,9 +55,9 @@ namespace SPORT_STORE
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "544057999923346",
-              appSecret: "d467938c428ee9a70cd03ea222062362");
+            //app.UseFacebookAuthentication(
+            //   appId: "",
+            //  appSecret: "");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
